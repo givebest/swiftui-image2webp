@@ -7,10 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55339E3D29DC640300194A92 /* LoadingButton in Frameworks */ = {isa = PBXBuildFile; productRef = 55339E3C29DC640300194A92 /* LoadingButton */; };
 		5544B7DC29DAFEE700D6238B /* Img2webpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5544B7DB29DAFEE700D6238B /* Img2webpApp.swift */; };
 		5544B7DE29DAFEE700D6238B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5544B7DD29DAFEE700D6238B /* ContentView.swift */; };
 		5544B7E029DAFEE800D6238B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5544B7DF29DAFEE800D6238B /* Assets.xcassets */; };
 		5544B7E329DAFEE800D6238B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5544B7E229DAFEE800D6238B /* Preview Assets.xcassets */; };
+		5544B7ED29DAFF6500D6238B /* ConfigModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5544B7EC29DAFF6500D6238B /* ConfigModel.swift */; };
+		5544B7F029DB021300D6238B /* SDWebImageWebPCoder in Frameworks */ = {isa = PBXBuildFile; productRef = 5544B7EF29DB021300D6238B /* SDWebImageWebPCoder */; };
+		5544B7F229DB04E700D6238B /* info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5544B7F129DB04E700D6238B /* info.plist */; };
+		5544B7F429DBA82F00D6238B /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5544B7F329DBA82F00D6238B /* SettingView.swift */; };
+		5544B7FB29DBFE7D00D6238B /* FileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5544B7FA29DBFE7D00D6238B /* FileModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +26,10 @@
 		5544B7DF29DAFEE800D6238B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5544B7E229DAFEE800D6238B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5544B7E429DAFEE800D6238B /* Img2webp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Img2webp.entitlements; sourceTree = "<group>"; };
+		5544B7EC29DAFF6500D6238B /* ConfigModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigModel.swift; sourceTree = "<group>"; };
+		5544B7F129DB04E700D6238B /* info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
+		5544B7F329DBA82F00D6238B /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		5544B7FA29DBFE7D00D6238B /* FileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +37,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5544B7F029DB021300D6238B /* SDWebImageWebPCoder in Frameworks */,
+				55339E3D29DC640300194A92 /* LoadingButton in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -36,6 +48,7 @@
 		5544B7CF29DAFEE700D6238B = {
 			isa = PBXGroup;
 			children = (
+				5544B7F129DB04E700D6238B /* info.plist */,
 				5544B7DA29DAFEE700D6238B /* Img2webp */,
 				5544B7D929DAFEE700D6238B /* Products */,
 			);
@@ -52,8 +65,9 @@
 		5544B7DA29DAFEE700D6238B /* Img2webp */ = {
 			isa = PBXGroup;
 			children = (
+				5544B7EB29DAFF4800D6238B /* Model */,
+				5544B7EA29DAFF3F00D6238B /* Views */,
 				5544B7DB29DAFEE700D6238B /* Img2webpApp.swift */,
-				5544B7DD29DAFEE700D6238B /* ContentView.swift */,
 				5544B7DF29DAFEE800D6238B /* Assets.xcassets */,
 				5544B7E429DAFEE800D6238B /* Img2webp.entitlements */,
 				5544B7E129DAFEE800D6238B /* Preview Content */,
@@ -67,6 +81,24 @@
 				5544B7E229DAFEE800D6238B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5544B7EA29DAFF3F00D6238B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5544B7DD29DAFEE700D6238B /* ContentView.swift */,
+				5544B7F329DBA82F00D6238B /* SettingView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5544B7EB29DAFF4800D6238B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5544B7EC29DAFF6500D6238B /* ConfigModel.swift */,
+				5544B7FA29DBFE7D00D6238B /* FileModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -85,6 +117,10 @@
 			dependencies = (
 			);
 			name = Img2webp;
+			packageProductDependencies = (
+				5544B7EF29DB021300D6238B /* SDWebImageWebPCoder */,
+				55339E3C29DC640300194A92 /* LoadingButton */,
+			);
 			productName = Img2webp;
 			productReference = 5544B7D829DAFEE700D6238B /* Img2webp.app */;
 			productType = "com.apple.product-type.application";
@@ -113,6 +149,10 @@
 				Base,
 			);
 			mainGroup = 5544B7CF29DAFEE700D6238B;
+			packageReferences = (
+				5544B7EE29DB021300D6238B /* XCRemoteSwiftPackageReference "SDWebImageWebPCoder" */,
+				55339E3B29DC640300194A92 /* XCRemoteSwiftPackageReference "LoadingButton" */,
+			);
 			productRefGroup = 5544B7D929DAFEE700D6238B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -129,6 +169,7 @@
 			files = (
 				5544B7E329DAFEE800D6238B /* Preview Assets.xcassets in Resources */,
 				5544B7E029DAFEE800D6238B /* Assets.xcassets in Resources */,
+				5544B7F229DB04E700D6238B /* info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +181,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5544B7DE29DAFEE700D6238B /* ContentView.swift in Sources */,
+				5544B7ED29DAFF6500D6238B /* ConfigModel.swift in Sources */,
+				5544B7FB29DBFE7D00D6238B /* FileModel.swift in Sources */,
+				5544B7F429DBA82F00D6238B /* SettingView.swift in Sources */,
 				5544B7DC29DAFEE700D6238B /* Img2webpApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,6 +380,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		55339E3B29DC640300194A92 /* XCRemoteSwiftPackageReference "LoadingButton" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Changemin/LoadingButton";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		5544B7EE29DB021300D6238B /* XCRemoteSwiftPackageReference "SDWebImageWebPCoder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageWebPCoder.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.11.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		55339E3C29DC640300194A92 /* LoadingButton */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 55339E3B29DC640300194A92 /* XCRemoteSwiftPackageReference "LoadingButton" */;
+			productName = LoadingButton;
+		};
+		5544B7EF29DB021300D6238B /* SDWebImageWebPCoder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5544B7EE29DB021300D6238B /* XCRemoteSwiftPackageReference "SDWebImageWebPCoder" */;
+			productName = SDWebImageWebPCoder;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5544B7D029DAFEE700D6238B /* Project object */;
 }
