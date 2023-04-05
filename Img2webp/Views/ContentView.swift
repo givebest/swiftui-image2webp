@@ -30,7 +30,7 @@ struct ContentView: View {
               Text("✅")
               
             } else if (item.state == -1) {
-              Text("❗️")
+              Text("❌")
               
             } else if (isLoading){
               ProgressView()
@@ -142,13 +142,13 @@ struct ContentView: View {
               results[index].state = 1
             }
           } else {
-            print("❗️Failed to load image at \(fileURL.path).")
+            print("❌Failed to load image at \(fileURL.path).")
             if let index = results.firstIndex(where: { $0.file == fileURL.path }) {
               results[index].state = -1
             }
           }
         } catch {
-          print("❗️Error converting \(fileURL.path) to webp: \(error.localizedDescription)")
+          print("❌Error converting \(fileURL.path) to webp: \(error.localizedDescription)")
           if let index = results.firstIndex(where: { $0.file == fileURL.path }) {
             results[index].state = -1
           }

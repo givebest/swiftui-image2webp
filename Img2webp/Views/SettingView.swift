@@ -27,7 +27,7 @@ struct SettingView: View {
          } onEditingChanged: { editing in
              isEditing = editing
          }
-        Text("\(configModel.quality)")
+        Text("\(Int(configModel.quality))")
              .foregroundColor(isEditing ? .red : .blue)
       })
       
