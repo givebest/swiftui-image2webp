@@ -16,11 +16,7 @@ struct ContentView: View {
   @EnvironmentObject var configModel: ConfigModel
   @State var results: [FileModel] = []
   @State var isLoading: Bool = false
-  
-  var style = LoadingButtonStyle(
-    height: 20,
-    cornerRadius: 10)
-  
+  @State private var isShowingAlert = false
   
   var body: some View {
     VStack {
@@ -37,8 +33,10 @@ struct ContentView: View {
         }
         
         
+        
+        
         HStack (alignment: .center, spacing: 20){
-          Button("选择图片") {
+          Button("Add images") {
             let panel = NSOpenPanel()
             panel.canChooseFiles = true
             panel.canChooseDirectories = false
@@ -56,14 +54,20 @@ struct ContentView: View {
             }
           }
           
+          
+          
           Spacer()
-          LoadingButton(action: {
+          LoadingBtn(title: "Convert to WebP", isLoading: $isLoading) {
             saveImage()
-          }, isLoading: $isLoading, style:style) {
-            Text("Convert to WebP").foregroundColor(Color.white)
           }
+          .alert(isPresented: $isShowingAlert) {
+            Alert(title: Text("No Items"), message: Text("Please select images."), dismissButton: .default(Text("OK")))
+          }
+          
+          .padding()
         }
       })
+      
       .sheet(isPresented: $configModel.showSetting, content: {
         ZStack(content: {
           SettingView()
@@ -72,7 +76,6 @@ struct ContentView: View {
       .navigationTitle("Image2webp")
       .navigationSubtitle("Convert images to webp format")
       .onChange(of: results) { newValue in
-        
         if (isLoading) {
           let state  = newValue.contains(where: { $0.state == 0 })
           isLoading = state
@@ -96,6 +99,12 @@ struct ContentView: View {
   
   
   func saveImage() {
+    
+    if configModel.selectedImages.isEmpty {
+      isShowingAlert = true
+      return
+    }
+    
     let coder = SDImageWebPCoder.shared
     let queue = DispatchQueue(label: "com.givebest.webpqueue", qos: .userInitiated, attributes: .concurrent)
     
