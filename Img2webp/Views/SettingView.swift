@@ -9,37 +9,43 @@ import SwiftUI
 
 struct SettingView: View {
   @EnvironmentObject var configModel: ConfigModel
+  @State private var isEditing = false
   
   var body: some View {
     VStack {
-      Section("设置", content: {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+      Section("Settings", content: {
+        Slider(
+          value: $configModel.quality,
+             in: 10...100,
+             step: 5
+         ) {
+             Text("Quality")
+         } minimumValueLabel: {
+             Text("10")
+         } maximumValueLabel: {
+             Text("100")
+         } onEditingChanged: { editing in
+             isEditing = editing
+         }
+        Text("\(configModel.quality)")
+             .foregroundColor(isEditing ? .red : .blue)
+      })
+      
+      
+      Spacer()
+      
+      Button( action: {
+        configModel.showSetting = false
+      }, label: {
+        HStack {
+          Image(systemName: "xmark.circle.fill")
+          Text("Close")
+        }
+       
       })
     }
-    .navigationTitle("设置")
-    .toolbar {
-      ToolbarItem(placement: .navigation) {
-        NavigationLink {
-          ZStack(content: {
-            ContentView()
-          })
-        } label: {
-          Label {
-            Text("返回")
-          } icon: {
-            Image(systemName: "chevron.left")
-          }
-        }
-        
-//        Button(action: {
-//          ContentView()
-//        }) {
-//          Image(systemName: "chevron.left")
-//            .frame(width: 16, height: 16)
-//        }
-//        .buttonStyle(BorderlessButtonStyle())
-      }
-    }
+    .padding()
+    .navigationTitle("Settings")
   }
 }
 

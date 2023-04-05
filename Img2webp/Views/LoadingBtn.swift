@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LoadingBtn: View {
   let title: String
+  let icon: String
   @Binding var isLoading: Bool
   let action: () -> Void
   
@@ -16,13 +17,17 @@ struct LoadingBtn: View {
     Button(action: {
       action()
     }) {
-      LabeledContent(title, content: {
+      HStack {
         if isLoading {
           ProgressView()
             .scaleEffect(0.3)
             .progressViewStyle(CircularProgressViewStyle())
+        } else {
+          Image(systemName: icon)
         }
-      })
+        
+        Text(title)
+      }
     }
     .disabled(isLoading)
   }

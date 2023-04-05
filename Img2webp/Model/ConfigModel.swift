@@ -9,10 +9,8 @@ import Foundation
 import Combine
 
 final class ConfigModel: ObservableObject {
-  var xx = true;
-  var name = "test name"
   @Published var showSetting: Bool = false
-  
   @Published var selectedImages: [URL] = []
   @Published var results: [String] = []
+  @Published var quality = 75.0
 }

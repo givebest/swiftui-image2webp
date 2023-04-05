@@ -10,6 +10,8 @@ import Foundation
 import SDWebImage
 import SDWebImageWebPCoder
 import LoadingButton
+import SDWebImageWebPCoder
+
 
 
 struct ContentView: View {
@@ -26,17 +28,22 @@ struct ContentView: View {
             Text(item.file)
             if (item.state == 1) {
               Text("✅")
+              
             } else if (item.state == -1) {
               Text("❗️")
+              
+            } else if (isLoading){
+              ProgressView()
+                .scaleEffect(0.3)
+                .progressViewStyle(CircularProgressViewStyle())
+                .frame(height: 10)
             }
-          }
+          } .frame(height: 10)
+          Divider()
         }
         
-        
-        
-        
         HStack (alignment: .center, spacing: 20){
-          Button("Add images") {
+          Button(action: {
             let panel = NSOpenPanel()
             panel.canChooseFiles = true
             panel.canChooseDirectories = false
@@ -52,12 +59,16 @@ struct ContentView: View {
                 results.append(FileModel(file: file.path, state: 0))
               }
             }
+          }) {
+            HStack {
+              Image(systemName: "rectangle.stack.fill.badge.plus")
+              Text("Add images")
+            }
           }
           
           
-          
           Spacer()
-          LoadingBtn(title: "Convert to WebP", isLoading: $isLoading) {
+          LoadingBtn(title: "Convert to WebP", icon: "play.circle.fill", isLoading: $isLoading) {
             saveImage()
           }
           .alert(isPresented: $isShowingAlert) {
@@ -90,7 +101,7 @@ struct ContentView: View {
         Button(action: {
           configModel.showSetting.toggle()
         }, label: {
-          Image(systemName: "gear")
+          Image(systemName: "gearshape.fill")
         })
       }
     }
@@ -110,18 +121,23 @@ struct ContentView: View {
     
     isLoading = true
     
+    results = results.map { item in
+      var newItem = item
+      newItem.state = 0
+      return newItem
+    }
+    
     for fileURL in configModel.selectedImages {
       queue.async {
         do {
+          let quality = configModel.quality / 100.0
           let imageData = try Data(contentsOf: fileURL)
+          
           if let image = NSImage(data: imageData) {
             //                        let imageName = fileURL.deletingPathExtension().lastPathComponent
-            let webpData = coder.encodedData(with: image, format: .webP, options: nil)
+            let webpData = coder.encodedData(with: image, format: .webP, options: [.encodeCompressionQuality: quality])
             let webpURL = fileURL.deletingPathExtension().appendingPathExtension("webp")
             try webpData?.write(to: webpURL, options: .atomic)
-            print("✅ Successfully converted \(fileURL.path) to webp.")
-            //                results.append("✅ Successfully converted \(fileURL.path) to webp.")
-            
             if let index = results.firstIndex(where: { $0.file == fileURL.path }) {
               results[index].state = 1
             }
@@ -130,14 +146,12 @@ struct ContentView: View {
             if let index = results.firstIndex(where: { $0.file == fileURL.path }) {
               results[index].state = -1
             }
-            //                results.append("❗️Failed to load image at \(fileURL.path).")
           }
         } catch {
           print("❗️Error converting \(fileURL.path) to webp: \(error.localizedDescription)")
           if let index = results.firstIndex(where: { $0.file == fileURL.path }) {
             results[index].state = -1
           }
-          //              results.append("❗️Error converting \(fileURL.path) to webp: \(error.localizedDescription)")
         }
       }
     }
