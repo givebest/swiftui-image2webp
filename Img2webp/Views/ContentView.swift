@@ -12,7 +12,14 @@ import SDWebImageWebPCoder
 import LoadingButton
 import SDWebImageWebPCoder
 
+struct Person: Identifiable {
+    let givenName: String
+    let familyName: String
+    let emailAddress: String
+    let id = UUID()
 
+    var fullName: String { givenName + " " + familyName }
+}
 
 struct ContentView: View {
   @EnvironmentObject var configModel: ConfigModel
@@ -20,32 +27,39 @@ struct ContentView: View {
   @State var isLoading: Bool = false
   @State private var isShowingAlert = false
   
+  @State private var people = [
+      Person(givenName: "Juan", familyName: "Chavez", emailAddress: "juanchavez@icloud.com"),
+      Person(givenName: "Mei", familyName: "Chen", emailAddress: "meichen@icloud.com"),
+      Person(givenName: "Tom", familyName: "Clark", emailAddress: "tomclark@icloud.com"),
+      Person(givenName: "Gita", familyName: "Kumar", emailAddress: "gitakumar@icloud.com")
+  ]
+  
   var body: some View {
     VStack {
       Section(content: {
-        List(results, id: \.self.file) {item in
-          HStack {
-            Text(item.file)
-            if (item.state == 1) {
+        Table(results) {
+          TableColumn("File", value: \.file)
+          TableColumn("Status") { item in
+            let state = item.state
+            if (state == 1) {
               Text("✅")
-              
             } else if (item.state == -1) {
               Text("❌")
-              
             } else if (isLoading){
               ProgressView()
                 .scaleEffect(0.3)
                 .progressViewStyle(CircularProgressViewStyle())
                 .frame(height: 10)
             }
-          } .frame(height: 10)
-          Divider()
+          }
+          .width(100)
         }
         
         HStack (alignment: .center, spacing: 20){
           Button(action: {
             let panel = NSOpenPanel()
             panel.canChooseFiles = true
+            panel.canCreateDirectories = true
             panel.canChooseDirectories = false
             panel.allowsMultipleSelection = true
             panel.allowedContentTypes = [.jpeg, .png, .gif]

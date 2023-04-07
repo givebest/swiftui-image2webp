@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct FileModel: Equatable {
+struct FileModel: Equatable, Identifiable {
+  let id = UUID()
   var file: String
   var state: Int
 }
