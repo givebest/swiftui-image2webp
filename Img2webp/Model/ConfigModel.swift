@@ -13,4 +13,5 @@ final class ConfigModel: ObservableObject {
   @Published var selectedImages: [URL] = []
   @Published var results: [String] = []
   @Published var quality = 75.0
+  @Published var isLoading: Bool = false
 }
