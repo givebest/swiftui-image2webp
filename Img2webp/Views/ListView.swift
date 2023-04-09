@@ -11,23 +11,31 @@ struct ListView: View {
   let results: [FileModel]
   let isLoading: Bool
   
-    var body: some View {
-      Table(results) {
-        TableColumn("File", value: \.file)
-        TableColumn("Status") { item in
-          let state = item.state
-          if (state == 1) {
-            Text("✅")
-          } else if (item.state == -1) {
-            Text("❌")
-          } else if (isLoading){
-            ProgressView()
-              .scaleEffect(0.3)
-              .progressViewStyle(CircularProgressViewStyle())
-              .frame(height: 10)
-          }
+  var body: some View {
+    Table(results) {
+      TableColumn("File", value: \.file)
+      TableColumn("Folder") {item in
+        Button(action: {
+          Helper.openFinder(filePath:item.file)
+        }) {
+          Image(systemName: "folder.fill")
         }
-        .width(100)
       }
+      .width(40)
+      TableColumn("Status") { item in
+        let state = item.state
+        if (state == 1) {
+          Text("✅")
+        } else if (item.state == -1) {
+          Text("❌")
+        } else if (isLoading){
+          ProgressView()
+            .scaleEffect(0.3)
+            .progressViewStyle(CircularProgressViewStyle())
+            .frame(height: 10)
+        }
+      }
+      .width(100)
     }
+  }
 }
