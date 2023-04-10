@@ -11,4 +11,5 @@ struct FileModel: Equatable, Identifiable {
   let id = UUID()
   var file: String
   var state: Int
+  var name: String
 }

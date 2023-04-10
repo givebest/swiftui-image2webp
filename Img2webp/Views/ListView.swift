@@ -13,7 +13,7 @@ struct ListView: View {
   
   var body: some View {
     Table(results) {
-      TableColumn("File", value: \.file)
+      TableColumn("File", value: \.name)
       TableColumn("Folder") {item in
         Button(action: {
           Helper.openFinder(filePath:item.file)

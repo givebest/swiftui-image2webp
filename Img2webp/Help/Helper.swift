@@ -47,6 +47,7 @@ struct Helper {
             try webpData?.write(to: webpURL, options: .atomic)
             if let index = results.wrappedValue.firstIndex(where: { $0.file == fileURL.path }) {
               results.wrappedValue[index].state = 1
+              results.wrappedValue[index].file = webpURL.path
             }
           } else {
             print("❌Failed to load image at \(fileURL.path).")
