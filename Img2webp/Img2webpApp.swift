@@ -6,8 +6,7 @@
 //
 
 import SwiftUI
-
-
+import Cocoa
 
 @main
 struct Img2webpApp: App {

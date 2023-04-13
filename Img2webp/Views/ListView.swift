@@ -13,10 +13,19 @@ struct ListView: View {
   
   var body: some View {
     Table(results) {
-      TableColumn("File", value: \.name)
+      TableColumn("File") { item in
+        let url = URL(fileURLWithPath: item.file)
+        let fileSizeString = Helper.fileSize(at: url)
+      
+        HStack (){
+          Text(item.name)
+          Spacer()
+          Text(fileSizeString)
+        }
+      }
       TableColumn("Folder") {item in
         Button(action: {
-          Helper.openFinder(filePath:item.file)
+          Helper.openFinder(filePath: item.fileWebp != "" ? item.fileWebp : item.file)
         }) {
           Image(systemName: "folder.fill")
         }
@@ -24,8 +33,15 @@ struct ListView: View {
       .width(40)
       TableColumn("Status") { item in
         let state = item.state
+        let url = URL(fileURLWithPath: item.fileWebp)
+        let fileSizeString = Helper.fileSize(at: url)
+        
         if (state == 1) {
-          Text("✅")
+          HStack (){
+            Text("✅")
+            Spacer()
+            Text(fileSizeString)
+          }
         } else if (item.state == -1) {
           Text("❌")
         } else if (isLoading){

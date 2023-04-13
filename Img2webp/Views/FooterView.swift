@@ -30,7 +30,7 @@ struct FooterView: View {
             results = []
             
             for file in fileList {
-              results.append(FileModel(file: file.path, state: 0, name: file.lastPathComponent))
+              results.append(FileModel(file: file.path, fileWebp: "", state: 0, name: file.lastPathComponent))
             }
           }
         }) {

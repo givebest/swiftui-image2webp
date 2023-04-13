@@ -21,6 +21,7 @@
 		5544B7F429DBA82F00D6238B /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5544B7F329DBA82F00D6238B /* SettingView.swift */; };
 		5544B7FB29DBFE7D00D6238B /* FileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5544B7FA29DBFE7D00D6238B /* FileModel.swift */; };
 		55776A9429DD023500852334 /* LoadingBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55776A9329DD023500852334 /* LoadingBtn.swift */; };
+		558A40DA29E7DC2700B499E7 /* DragView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558A40D929E7DC2700B499E7 /* DragView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		5544B7F329DBA82F00D6238B /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		5544B7FA29DBFE7D00D6238B /* FileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileModel.swift; sourceTree = "<group>"; };
 		55776A9329DD023500852334 /* LoadingBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingBtn.swift; sourceTree = "<group>"; };
+		558A40D929E7DC2700B499E7 /* DragView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				55776A9329DD023500852334 /* LoadingBtn.swift */,
 				550EA03429E10AEF00DCA585 /* ListView.swift */,
 				550EA03829E1378F00DCA585 /* FooterView.swift */,
+				558A40D929E7DC2700B499E7 /* DragView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 				550EA03529E10AEF00DCA585 /* ListView.swift in Sources */,
 				550EA03329E1057800DCA585 /* Helper.swift in Sources */,
 				550EA03929E1378F00DCA585 /* FooterView.swift in Sources */,
+				558A40DA29E7DC2700B499E7 /* DragView.swift in Sources */,
 				5544B7DE29DAFEE700D6238B /* ContentView.swift in Sources */,
 				5544B7ED29DAFF6500D6238B /* ConfigModel.swift in Sources */,
 				5544B7FB29DBFE7D00D6238B /* FileModel.swift in Sources */,
