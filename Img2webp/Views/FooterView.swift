@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct FooterView: View {
-  @Binding var selectedImages: [URL]
-  @Binding var results: [FileModel]
+  @Binding var selectedImages: [ImageModel]
   @Binding var isLoading: Bool
   @Binding var isShowingAlert: Bool
   var configModel: ConfigModel
@@ -26,11 +25,13 @@ struct FooterView: View {
           
           if panel.runModal() == .OK {
             let fileList = panel.urls
-            selectedImages = fileList
-            results = []
+
             
             for file in fileList {
-              results.append(FileModel(file: file.path, fileWebp: "", state: 0, name: file.lastPathComponent))
+                
+                selectedImages.append(ImageModel(url: file, path: file.path, convertedPath: "", state: 0, name: file.lastPathComponent))
+                
+
             }
           }
         }) {
@@ -42,7 +43,7 @@ struct FooterView: View {
         
         Spacer()
         LoadingBtn(title: "Convert to WebP", icon: "play.circle.fill", isLoading: $isLoading) {
-          Helper.saveImage(isShowingAlert: $isShowingAlert, isLoading: $isLoading, selectedImages: selectedImages, results: $results, quality: configModel.quality)
+            Helper.saveImage(isShowingAlert: $isShowingAlert, isLoading: $isLoading, selectedImages: $selectedImages, quality: configModel.quality)
         }
         .alert(isPresented: $isShowingAlert) {
           Alert(title: Text("No Items"), message: Text("Please select images."), dismissButton: .default(Text("OK")))

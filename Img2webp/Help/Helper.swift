@@ -24,7 +24,7 @@ struct Helper {
     NSWorkspace.shared.activateFileViewerSelecting([url])
   }
   
-  static func saveImage(isShowingAlert: Binding<Bool>, isLoading: Binding<Bool>, selectedImages:[URL], results: Binding<[FileModel]>, quality: Double) {
+  static func saveImage(isShowingAlert: Binding<Bool>, isLoading: Binding<Bool>, selectedImages:Binding<[ImageModel]>, quality: Double) {
     
     if selectedImages.isEmpty {
       isShowingAlert.wrappedValue = true
@@ -36,37 +36,39 @@ struct Helper {
     
     isLoading.wrappedValue = true
     
-    results.wrappedValue = results.wrappedValue.map { item in
+      selectedImages.wrappedValue = selectedImages.wrappedValue.map { item in
       var newItem = item
       newItem.state = 0
       return newItem
     }
     
-    for fileURL in selectedImages {
+    for file in selectedImages {
+        let fileURL = file.url.wrappedValue
+        
       queue.async {
         do {
           let quality = quality / 100.0
-          let imageData = try Data(contentsOf: fileURL)
+            let imageData = try Data(contentsOf: fileURL)
           
           if let image = NSImage(data: imageData) {
             //                        let imageName = fileURL.deletingPathExtension().lastPathComponent
             let webpData = coder.encodedData(with: image, format: .webP, options: [.encodeCompressionQuality: quality])
             let webpURL = fileURL.deletingPathExtension().appendingPathExtension("webp")
             try webpData?.write(to: webpURL, options: .atomic)
-            if let index = results.wrappedValue.firstIndex(where: { $0.file == fileURL.path }) {
-              results.wrappedValue[index].state = 1
-              results.wrappedValue[index].fileWebp = webpURL.path
+            if let index = selectedImages.wrappedValue.firstIndex(where: { $0.path == fileURL.path }) {
+                selectedImages.wrappedValue[index].state = 1
+                selectedImages.wrappedValue[index].convertedPath = webpURL.path
             }
           } else {
             print("❌Failed to load image at \(fileURL.path).")
-            if let index = results.wrappedValue.firstIndex(where: { $0.file == fileURL.path }) {
-              results.wrappedValue[index].state = -1
+            if let index = selectedImages.wrappedValue.firstIndex(where: { $0.path == fileURL.path }) {
+                selectedImages.wrappedValue[index].state = -1
             }
           }
         } catch {
           print("❌Error converting \(fileURL.path) to webp: \(error.localizedDescription)")
-          if let index = results.wrappedValue.firstIndex(where: { $0.file == fileURL.path }) {
-            results.wrappedValue[index].state = -1
+          if let index = selectedImages.wrappedValue.firstIndex(where: { $0.path == fileURL.path }) {
+              selectedImages.wrappedValue[index].state = -1
           }
         }
       }
