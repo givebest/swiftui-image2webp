@@ -8,18 +8,6 @@
 import Foundation
 import UniformTypeIdentifiers
 
-struct FileModel: Equatable, Identifiable {
-    let id = UUID()
-    var file: String
-    var fileWebp: String
-    var state: Int
-    var name: String
-    
-    var url: URL
-    var path: String
-    var webpPath: String
-}
-
 struct ImageModel: Equatable, Identifiable {
     let id = UUID()
     var url: URL

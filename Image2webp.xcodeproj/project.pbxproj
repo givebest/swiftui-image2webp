@@ -10,7 +10,6 @@
 		550EA03329E1057800DCA585 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550EA03229E1057800DCA585 /* Helper.swift */; };
 		550EA03529E10AEF00DCA585 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550EA03429E10AEF00DCA585 /* ListView.swift */; };
 		550EA03929E1378F00DCA585 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550EA03829E1378F00DCA585 /* FooterView.swift */; };
-		55339E3D29DC640300194A92 /* LoadingButton in Frameworks */ = {isa = PBXBuildFile; productRef = 55339E3C29DC640300194A92 /* LoadingButton */; };
 		5544B7DC29DAFEE700D6238B /* Img2webpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5544B7DB29DAFEE700D6238B /* Img2webpApp.swift */; };
 		5544B7DE29DAFEE700D6238B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5544B7DD29DAFEE700D6238B /* ContentView.swift */; };
 		5544B7E029DAFEE800D6238B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5544B7DF29DAFEE800D6238B /* Assets.xcassets */; };
@@ -29,7 +28,7 @@
 		550EA03429E10AEF00DCA585 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		550EA03829E1378F00DCA585 /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
 		550EA03A29E1460200DCA585 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		5544B7D829DAFEE700D6238B /* Img2webp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Img2webp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5544B7D829DAFEE700D6238B /* Image2webp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Image2webp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5544B7DB29DAFEE700D6238B /* Img2webpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Img2webpApp.swift; sourceTree = "<group>"; };
 		5544B7DD29DAFEE700D6238B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5544B7DF29DAFEE800D6238B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,7 +48,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5544B7F029DB021300D6238B /* SDWebImageWebPCoder in Frameworks */,
-				55339E3D29DC640300194A92 /* LoadingButton in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,7 +75,7 @@
 		5544B7D929DAFEE700D6238B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5544B7D829DAFEE700D6238B /* Img2webp.app */,
+				5544B7D829DAFEE700D6238B /* Image2webp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -129,9 +127,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5544B7D729DAFEE700D6238B /* Img2webp */ = {
+		5544B7D729DAFEE700D6238B /* Image2webp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5544B7E729DAFEE800D6238B /* Build configuration list for PBXNativeTarget "Img2webp" */;
+			buildConfigurationList = 5544B7E729DAFEE800D6238B /* Build configuration list for PBXNativeTarget "Image2webp" */;
 			buildPhases = (
 				5544B7D429DAFEE700D6238B /* Sources */,
 				5544B7D529DAFEE700D6238B /* Frameworks */,
@@ -141,13 +139,12 @@
 			);
 			dependencies = (
 			);
-			name = Img2webp;
+			name = Image2webp;
 			packageProductDependencies = (
 				5544B7EF29DB021300D6238B /* SDWebImageWebPCoder */,
-				55339E3C29DC640300194A92 /* LoadingButton */,
 			);
 			productName = Img2webp;
-			productReference = 5544B7D829DAFEE700D6238B /* Img2webp.app */;
+			productReference = 5544B7D829DAFEE700D6238B /* Image2webp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -165,7 +162,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5544B7D329DAFEE700D6238B /* Build configuration list for PBXProject "Img2webp" */;
+			buildConfigurationList = 5544B7D329DAFEE700D6238B /* Build configuration list for PBXProject "Image2webp" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -176,13 +173,12 @@
 			mainGroup = 5544B7CF29DAFEE700D6238B;
 			packageReferences = (
 				5544B7EE29DB021300D6238B /* XCRemoteSwiftPackageReference "SDWebImageWebPCoder" */,
-				55339E3B29DC640300194A92 /* XCRemoteSwiftPackageReference "LoadingButton" */,
 			);
 			productRefGroup = 5544B7D929DAFEE700D6238B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5544B7D729DAFEE700D6238B /* Img2webp */,
+				5544B7D729DAFEE700D6238B /* Image2webp */,
 			);
 		};
 /* End PBXProject section */
@@ -355,8 +351,8 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = givebest.Img2webp;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = givebest.Image2webp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -384,8 +380,8 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = givebest.Img2webp;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = givebest.Image2webp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -395,7 +391,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5544B7D329DAFEE700D6238B /* Build configuration list for PBXProject "Img2webp" */ = {
+		5544B7D329DAFEE700D6238B /* Build configuration list for PBXProject "Image2webp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5544B7E529DAFEE800D6238B /* Debug */,
@@ -404,7 +400,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5544B7E729DAFEE800D6238B /* Build configuration list for PBXNativeTarget "Img2webp" */ = {
+		5544B7E729DAFEE800D6238B /* Build configuration list for PBXNativeTarget "Image2webp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5544B7E829DAFEE800D6238B /* Debug */,
@@ -416,14 +412,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		55339E3B29DC640300194A92 /* XCRemoteSwiftPackageReference "LoadingButton" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Changemin/LoadingButton";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 		5544B7EE29DB021300D6238B /* XCRemoteSwiftPackageReference "SDWebImageWebPCoder" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImageWebPCoder.git";
@@ -435,11 +423,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		55339E3C29DC640300194A92 /* LoadingButton */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 55339E3B29DC640300194A92 /* XCRemoteSwiftPackageReference "LoadingButton" */;
-			productName = LoadingButton;
-		};
 		5544B7EF29DB021300D6238B /* SDWebImageWebPCoder */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5544B7EE29DB021300D6238B /* XCRemoteSwiftPackageReference "SDWebImageWebPCoder" */;

@@ -10,8 +10,6 @@ import Combine
 
 final class ConfigModel: ObservableObject {
   @Published var showSetting: Bool = false
-  @Published var selectedImages: [URL] = []
-  @Published var results: [String] = []
   @Published var quality = 75.0
   @Published var isLoading: Bool = false
 }

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5544B7D729DAFEE700D6238B"
-               BuildableName = "Img2webp.app"
-               BlueprintName = "Img2webp"
-               ReferencedContainer = "container:Img2webp.xcodeproj">
+               BuildableName = "Image2webp.app"
+               BlueprintName = "Image2webp"
+               ReferencedContainer = "container:Image2webp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -44,9 +44,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5544B7D729DAFEE700D6238B"
-            BuildableName = "Img2webp.app"
-            BlueprintName = "Img2webp"
-            ReferencedContainer = "container:Img2webp.xcodeproj">
+            BuildableName = "Image2webp.app"
+            BlueprintName = "Image2webp"
+            ReferencedContainer = "container:Image2webp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -61,9 +61,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5544B7D729DAFEE700D6238B"
-            BuildableName = "Img2webp.app"
-            BlueprintName = "Img2webp"
-            ReferencedContainer = "container:Img2webp.xcodeproj">
+            BuildableName = "Image2webp.app"
+            BlueprintName = "Image2webp"
+            ReferencedContainer = "container:Image2webp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
@@ -72,6 +72,7 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
+      customArchiveName = "Image2webp"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

@@ -35,7 +35,7 @@ struct ListView: View {
           
           TableColumn("Status") { item in
             let state = item.state
-              let url = item.url
+            let url = URL(fileURLWithPath: item.convertedPath)
             let fileSizeString = Helper.fileSize(at: url)
             
             if (state == 1) {

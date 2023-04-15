@@ -12,19 +12,16 @@ import UniformTypeIdentifiers
 
 struct ContentView: View {
     @EnvironmentObject var configModel: ConfigModel
-//    @State private var results: [FileModel] = []
     @State var isLoading: Bool = false
     @State private var isShowingAlert = false
-    
     @State private var fileItems: [FileItem] = []
-    
     @State private var selectedimages: [ImageModel] = []
     
     var body: some View {
         VStack {
             Section(content: {
                 ListView(selectedimages: selectedimages, isLoading:isLoading)
-                //          .onDrop(of: [UTType.fileURL], delegate: FileDropDelegate(fileItems: $fileItems))
+                
                     .onDrop(of: [UTType.fileURL], delegate: FileDropDelegate(fileItems: $fileItems))
                     .frame(minWidth: 400, minHeight: 300)
                     .onChange(of: fileItems) { item in
@@ -33,8 +30,6 @@ struct ContentView: View {
                         
                         for file in fileItems {
                             let fileItem = file.url
-//                            results.append(FileModel(file: file.url.path, fileWebp: "", state: 0, name: file.url.lastPathComponent, url: file.url, path: file.url.path, webpPath: ""))
-                            
                             selectedimages.append(ImageModel(url: fileItem, path: fileItem.path, convertedPath: "", state: 0, name: fileItem.lastPathComponent))
                         }
                     }
