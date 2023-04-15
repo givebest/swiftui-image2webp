@@ -21,16 +21,17 @@ struct ContentView: View {
         VStack {
             Section(content: {
                 ListView(selectedimages: selectedimages, isLoading:isLoading)
-                
-                    .onDrop(of: [UTType.fileURL], delegate: FileDropDelegate(fileItems: $fileItems))
+                    .onDrop(of: [UTType.image], delegate: FileDropDelegate(fileItems: $fileItems))
                     .frame(minWidth: 400, minHeight: 300)
                     .onChange(of: fileItems) { item in
-                        print("ListView", fileItems)
-                        
-                        
                         for file in fileItems {
                             let fileItem = file.url
-                            selectedimages.append(ImageModel(url: fileItem, path: fileItem.path, convertedPath: "", state: 0, name: fileItem.lastPathComponent))
+                            
+                            let exists = selectedimages.contains { $0.path == fileItem.path }
+                            if !exists {
+                                selectedimages.append(ImageModel(url: fileItem, path: fileItem.path, convertedPath: "", state: 0, name: fileItem.lastPathComponent))
+                            }
+                            
                         }
                     }
                 

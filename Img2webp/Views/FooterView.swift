@@ -27,7 +27,10 @@ struct FooterView: View {
                     let fileList = panel.urls
                     
                     for file in fileList {
-                        selectedImages.append(ImageModel(url: file, path: file.path, convertedPath: "", state: 0, name: file.lastPathComponent))
+                        let exists = selectedImages.contains { $0.path == file.path }
+                        if !exists {
+                            selectedImages.append(ImageModel(url: file, path: file.path, convertedPath: "", state: 0, name: file.lastPathComponent))
+                        }
                     }
                 }
             }) {
