@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ListView: View {
-  let selectedimages: [ImageModel]
+  let selectedImages: [ImageModel]
   let isLoading: Bool
   
   var body: some View {
-      Table(selectedimages) {
+      Table(selectedImages) {
           TableColumn("File") { item in
               let url = item.url
             let fileSizeString = Helper.fileSize(at: url)

@@ -8,6 +8,8 @@ Convert images to WebP format using the macOS App developed by swiftui.
 
 - Support jpeg/png/gif to webp conversion
 - Support for setting conversion quality
+- Support drag and drop to select images
+- Support for removing selected images
 
 ## Download
 

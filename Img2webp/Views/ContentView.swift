@@ -15,27 +15,27 @@ struct ContentView: View {
     @State var isLoading: Bool = false
     @State private var isShowingAlert = false
     @State private var fileItems: [FileItem] = []
-    @State private var selectedimages: [ImageModel] = []
+    @State private var selectedImages: [ImageModel] = []
     
     var body: some View {
         VStack {
             Section(content: {
-                ListView(selectedimages: selectedimages, isLoading:isLoading)
+                ListView(selectedImages: selectedImages, isLoading:isLoading)
                     .onDrop(of: [UTType.image], delegate: FileDropDelegate(fileItems: $fileItems))
                     .frame(minWidth: 400, minHeight: 300)
                     .onChange(of: fileItems) { item in
                         for file in fileItems {
                             let fileItem = file.url
                             
-                            let exists = selectedimages.contains { $0.path == fileItem.path }
+                            let exists = selectedImages.contains { $0.path == fileItem.path }
                             if !exists {
-                                selectedimages.append(ImageModel(url: fileItem, path: fileItem.path, convertedPath: "", state: 0, name: fileItem.lastPathComponent))
+                                selectedImages.append(ImageModel(url: fileItem, path: fileItem.path, convertedPath: "", state: 0, name: fileItem.lastPathComponent))
                             }
                             
                         }
                     }
                 
-                FooterView(selectedImages: $selectedimages, isLoading: $isLoading, isShowingAlert: $isShowingAlert, configModel: configModel)
+                FooterView(selectedImages: $selectedImages, fileItems: $fileItems, isLoading: $isLoading, isShowingAlert: $isShowingAlert, configModel: configModel)
             })
             .sheet(isPresented: $configModel.showSetting, content: {
                 ZStack(content: {
@@ -44,7 +44,7 @@ struct ContentView: View {
             })
             .navigationTitle("Image2webp")
             .navigationSubtitle("Convert images to webp format")
-            .onChange(of: selectedimages) { newValue in
+            .onChange(of: selectedImages) { newValue in
                 if (isLoading) {
                     let state  = newValue.contains(where: { $0.state == 0 })
                     isLoading = state

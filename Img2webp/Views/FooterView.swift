@@ -9,6 +9,7 @@ import SwiftUI
 
 struct FooterView: View {
     @Binding var selectedImages: [ImageModel]
+    @Binding var fileItems: [FileItem]
     @Binding var isLoading: Bool
     @Binding var isShowingAlert: Bool
     var configModel: ConfigModel
@@ -35,10 +36,21 @@ struct FooterView: View {
                 }
             }) {
                 HStack {
-                    Image(systemName: "rectangle.stack.fill.badge.plus")
+                    Image(systemName: "plus.circle.fill")
                     Text("Add images")
                 }
             }
+            
+            Button(action: {
+                fileItems = []
+                selectedImages = []
+            }, label: {
+                HStack {
+                    Image(systemName: "minus.circle.fill")
+                    Text("Remove images")
+                }
+            })
+            .disabled(selectedImages.isEmpty)
             
             Spacer()
             LoadingBtn(title: "Convert to WebP", icon: "play.circle.fill", isLoading: $isLoading) {
