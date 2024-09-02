@@ -1,7 +1,7 @@
 # Image2WebP
 Convert images to WebP format, Support to convert jpeg/png/gif/heic/bmp/tiff/heif format images to smaller WebP format.
 
-![Image2WebP](Image2WebP.webp?raw=true)
+![Image2WebP](screenshots/Image2WebP.webp?raw=true)
 
 Demo: https://www.youtube-nocookie.com/embed/-cnW0mZjkKU
 
