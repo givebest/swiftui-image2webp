@@ -1,10 +1,11 @@
-# Image2WebP
+# Image2WebP Convert image to WebP App for Mac
+
 Convert images to WebP format, Support to convert jpeg/png/gif/heic/bmp/tiff/heif format images to smaller WebP format.
 
+Demo: https://youtu.be/ioUtWpKwdMs  
+Download: https://image2webp.hp60.com
+
 ![Image2WebP](screenshots/Image2WebP.webp?raw=true)
-
-Demo: https://www.youtube-nocookie.com/embed/-cnW0mZjkKU
-
 
 ## features
 
@@ -20,7 +21,6 @@ Image2WebP does not require an Internet connection and runs only on your compute
 
 Image2WebP APP focuses on converting images to WebP format, the size of the APP is less than 10M, of course, it can also convert images to smaller WebP format.
 
-
 ## FAQ
 
 - #### What is Image2WebP?
@@ -35,11 +35,6 @@ Image2WebP APP focuses on converting images to WebP format, the size of the APP 
 
   1. Please check if the image format is a supported.
   2. Due to the security mechanisms on Mac, please select images in the `/Users/[yourname]/Downloads/` folder to ensure the conversion works correctly.
-
-- #### Does it support conversion of images that are not in the `/Users/[yourname]/Downloads/` folder?
-
-  Yes!
-  We recommend copying the image to the `/Users/[yourname]/Downloads/` folder for conversion.Otherwise, you can also convert images from other folders, but you need to manually open the file save permissions, which is a complicated process and not recommended!
 
 - #### Does it support batch conversion?
 
