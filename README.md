@@ -2,8 +2,8 @@
 
 Convert images to WebP format, Support to convert jpeg/png/gif/heic/bmp/tiff/heif format images to smaller WebP format.
 
-Demo: https://youtu.be/ioUtWpKwdMs  
 Download: https://image2webp.hp60.com
+Demo: https://youtu.be/ioUtWpKwdMs
 
 ![Image2WebP](screenshots/Image2WebP.webp?raw=true)
 
@@ -29,12 +29,12 @@ Image2WebP APP focuses on converting images to WebP format, the size of the APP 
 
 - #### What image formats are supported for conversion to WebP format?
 
-  Currently `jpeg/png/gif/heic/bmp/tiff/heif` image formats are supported.
+  Currently `jpeg/png/gif/heic/bmp/tiff/heif/psd` image formats are supported.
 
 - #### Image conversion failed
 
   1. Please check if the image format is a supported.
-  2. Due to the security mechanisms on Mac, please select images in the `/Users/[yourname]/Downloads/` folder to ensure the conversion works correctly.
+  2. Due to sandboxing security on the Mac, please select a save directory to ensure the conversion works properly.
 
 - #### Does it support batch conversion?
 
